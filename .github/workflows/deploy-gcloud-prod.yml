@@ -15,11 +15,13 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT_ID }}
   IMAGE: insights-extractor
 on: 
-  workflow_dispatch:
-    inputs:
-        Test:
-          description: 'Tesging'    
-          default: 'warning'
+  release:
+   types: [created]
+#   workflow_dispatch:
+#     inputs:
+#         Test:
+#           description: 'Tesging'    
+#           default: 'warning'
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
