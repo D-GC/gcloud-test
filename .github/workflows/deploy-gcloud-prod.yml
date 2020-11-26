@@ -36,7 +36,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@master
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID_73848 }}
-        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_73848_TEST }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_73848_TEST_ADMIN_STORAGE_ONLY }}
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
