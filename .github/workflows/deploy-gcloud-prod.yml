@@ -12,11 +12,10 @@
 
 name: Build and Deploy to GKE
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID_73848 }}
   IMAGE: insights-extractor
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
+#  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
+#  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
 on: 
   release:
    types: [created]
@@ -36,8 +35,8 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@master
       with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        project_id: ${{ secrets.GCP_PROJECT_ID_73848 }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_73848 }}
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
