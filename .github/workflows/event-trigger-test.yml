@@ -16,9 +16,8 @@ jobs:
     name: deploy images
     runs-on: ubuntu-latest
     steps:
+    - if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "DEFAULT_TAG=$(echo github.event.inputs.tag)" >> $GITHUB_ENV
     - run: |
-        echo $GITHUB_EVENT_NAME
-        echo $GITHUB_REF
-        echo "Hello ${{ github.event.inputs.tag }}!"
-    - run: |
-        echo ${{github.event.name }}
+        echo $DEFAULT_TAG
