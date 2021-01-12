@@ -18,6 +18,6 @@ jobs:
     steps:
     - if: github.event_name == 'workflow_dispatch'
       run: |
-        echo "DEFAULT_TAG=$(echo github.event.inputs.tag)" >> $GITHUB_ENV
+        echo "DEFAULT_TAG=$(echo ${{github.event.inputs.tag}})" >> $GITHUB_ENV
     - run: |
         echo $DEFAULT_TAG
