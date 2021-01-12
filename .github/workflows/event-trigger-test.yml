@@ -14,8 +14,9 @@ on:
 jobs:
   deploy:
     name: deploy images
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - run: |
         echo $GITHUB_EVENT_NAME
+        echo $GITHUB_REF
         echo "Hello ${{ github.event.inputs.tag }}!"
