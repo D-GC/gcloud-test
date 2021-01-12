@@ -1,5 +1,6 @@
 name: Testing multiple events 
-
+env: 
+  DEFAULT_TAG: latest
 on:
   push:
     branches:
@@ -9,11 +10,12 @@ on:
       tag:
         description: Tag to deploy
         required: false
-        default: latest
+        default: $DEFAULT_TAG
 jobs:
   deploy:
     name: deploy images
     runs-on: ubuntu-18.04
     steps:
     - run: |
+        echo "$GITHUB_EVENT_NAME -"
         echo "Hello ${{ github.event.inputs.tag }}!"
