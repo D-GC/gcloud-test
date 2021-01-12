@@ -22,9 +22,10 @@ jobs:
     - if: github.event_name == 'workflow_dispatch'
       run: |
         echo "DEFAULT_TAG2= $(echo ${{ github.event.inputs.tag  }})" >> $GITHUB_ENV      
-    - if: github.event_name == 'push' && (startsWith('feature') || startsWith('hotfix'))
+    - if: github.event_name == 'push' && (startsWith( ${GITHUB_REF#refs/heads/}, 'feature') || startsWith(${GITHUB_REF#refs/heads/}, 'hotfix'))
       run: |
         echo "DEFAULT_TAG2=$GITHUB_REF" >> $GITHUB_ENV           
     - run: |
+        echo ${GITHUB_REF#refs/heads/}
         echo $DEFAULT_TAG
         echo $DEFAULT_TAG2
