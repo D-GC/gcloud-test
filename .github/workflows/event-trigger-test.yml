@@ -8,7 +8,8 @@ on:
     inputs:
       tag:
         description: Tag to deploy
-        required: true
+        required: false
+        default: latest
 jobs:
   deploy:
     name: deploy images
