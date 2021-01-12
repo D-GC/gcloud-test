@@ -10,7 +10,7 @@ on:
       tag:
         description: Tag to deploy
         required: false
-        default: $DEFAULT_TAG
+        default: latest
 jobs:
   deploy:
     name: deploy images
@@ -20,3 +20,5 @@ jobs:
         echo $GITHUB_EVENT_NAME
         echo $GITHUB_REF
         echo "Hello ${{ github.event.inputs.tag }}!"
+    - run: |
+        echo ${{github.event.name }}
